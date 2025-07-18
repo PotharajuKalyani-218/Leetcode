@@ -9,8 +9,7 @@ class Solution {
                 d+=i;
 
         }
-        int diff=nd-d;
-        return diff;
+        return nd-d;
         
     }
 }
