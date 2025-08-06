@@ -1,5 +1,5 @@
     public class Solution{
-        public long calculateTotalHours(int[] piles, int speed) {
+        public long TotalTime(int[] piles, int speed) {
         long totalHours = 0;
         for (int pile : piles) {
             totalHours += (long) Math.ceil((double) pile / speed);
@@ -17,7 +17,7 @@
         while (low <= high) {
             int mid = low + (high - low) / 2;
 
-            if (calculateTotalHours(piles, mid) <= h) {
+            if (TotalTime(piles, mid) <= h) {
                 result = mid;  
                 high = mid - 1;
             } else {
