@@ -1,18 +1,20 @@
 class Solution {
     public int canBeTypedWords(String text, String brokenLetters) {
-        int count=0;
-        String [] words=text.split(" ");
-        for (String word : words) {
+        boolean[] broken = new boolean[26];
+        for (char c : brokenLetters.toCharArray()) {
+            broken[c - 'a'] = true;
+        }
+        
+        int count = 0;
+        for (String word : text.split(" ")) {
             boolean isBroken = false;
-            for (char brokenChar : brokenLetters.toCharArray()) {
-                if (word.contains(String.valueOf(brokenChar))) {
+            for (char c : word.toCharArray()) {
+                if (broken[c - 'a']) {
                     isBroken = true;
                     break;
                 }
             }
-            if (!isBroken) {
-                count++;
-            }
+            if (!isBroken) count++;
         }
         return count;
     }
