@@ -21,8 +21,9 @@ class Solution {
     public int good(TreeNode root,int mx){
         int ct;
         if(root==null) return 0;
-        if(root.val>=mx) ct=1;
-        else ct=0;
+       // if(root.val>=mx) ct=1; 
+       // else ct=0;
+       ct=root.val>=mx?1:0;
         mx=Math.max(root.val,mx);
         ct+=good(root.left,Math.max(root.val,mx));
         ct+=good(root.right,Math.max(root.val,mx));
