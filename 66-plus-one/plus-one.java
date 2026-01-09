@@ -1,19 +1,18 @@
 class Solution {
     public int[] plusOne(int[] digits) {
-        int n = digits.length;
-
-        // Traverse from last digit
-        for (int i = n - 1; i >= 0; i--) {
-            if (digits[i] < 9) {
-                digits[i]++;      // simple increment
+        for(int i=digits.length-1; i>=0; i--)
+        {
+            if(digits[i] < 9)
+            {
+                digits[i]++;
                 return digits;
             }
-            digits[i] = 0;        // carry forward
+
+            digits[i]=0;
         }
 
-        // If all digits were 9
-        int[] result = new int[n + 1];
-        result[0] = 1;
-        return result;
+        int[] newArr = new int[digits.length + 1];
+            newArr[0] = 1;
+            return newArr;
     }
 }
