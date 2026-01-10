@@ -1,12 +1,11 @@
 class Solution {
     public int minimumDeleteSum(String s1, String s2) {
-
         int m = s1.length();
         int n = s2.length();
 
         int[][] dp = new int[m + 1][n + 1];
 
-        // Base cases
+        // base cases
         for (int i = 1; i <= m; i++) {
             dp[i][0] = dp[i - 1][0] + s1.charAt(i - 1);
         }
@@ -14,7 +13,7 @@ class Solution {
             dp[0][j] = dp[0][j - 1] + s2.charAt(j - 1);
         }
 
-        // DP computation
+        // dp
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {
                 if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
@@ -27,7 +26,6 @@ class Solution {
                 }
             }
         }
-
         return dp[m][n];
     }
 }
