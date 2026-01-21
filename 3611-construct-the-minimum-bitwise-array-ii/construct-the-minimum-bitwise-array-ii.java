@@ -1,20 +1,21 @@
 class Solution {
     public int[] minBitwiseArray(List<Integer> nums) {
         int n = nums.size();
-        int[] ans = new int[n];
-        for (int i = 0; i < n; ++i) {
-            int x = nums.get(i);
-            if (x == 2) {
-                ans[i] = -1;
-            } else {
-                for (int j = 1; j < 32; ++j) {
-                    if ((x >> j & 1) == 0) {
-                        ans[i] = x ^ 1 << (j - 1);
-                        break;
-                    }
+        int [] arr=new int[n];
+
+        for(int i=0;i<n;i++){
+            int num=nums.get(i);
+            int pattern=1;
+            int res=-1;
+
+            while((num & pattern ) !=0 ){
+
+                res=num-pattern;
+                pattern<<=1;
                 }
-            }
-        }
-        return ans;
+                arr[i]=res;            
+            
+                  } 
+        return arr;
     }
 }
